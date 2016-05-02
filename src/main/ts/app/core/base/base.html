@@ -1,0 +1,24 @@
+<div class="wrapper" [ngClass]="skin">
+    <core-header [remove-host]></core-header>
+
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+        <core-menu [remove-host]></core-menu>
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+
+        <core-content-header [remove-host]></core-content-header>
+
+        <!-- Main content -->
+        <section class="content">
+            <router-outlet></router-outlet>
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <core-control [remove-host]></core-control>
+    <!-- /.content-wrapper -->
+    <core-footer [remove-host]></core-footer>
+</div>
