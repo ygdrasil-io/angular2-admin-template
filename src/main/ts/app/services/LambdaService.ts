@@ -1,5 +1,5 @@
 import {Injectable} from 'angular2/core'
-import {Http, Response} from 'angular2/http';
+import {Http, Response} from 'angular2/http'
 import {Subject} from 'rxjs/Subject'
 import {Observable} from 'rxjs/Observable'
 
@@ -19,7 +19,7 @@ export class LambdaService {
     private dataUrl = 'http://jsonplaceholder.typicode.com/posts/1'
     private xmlDataUrl = 'https://supportforums.cisco.com/sites/default/files/legacy/9/0/8/66809-Text_example.xml'
 
-    getData (): Observable<LambdaData> {
+    /*getData (): Observable<LambdaData> {
         return this.http.get(this.dataUrl)
         .map(this.extractData)
         .catch(this.handleError)
@@ -38,7 +38,7 @@ export class LambdaService {
         let errMsg = error.message || 'Server error'
         console.error(errMsg); // log to console instead
         return Observable.throw(errMsg)
-    }
+    }*/
 }
 
 
