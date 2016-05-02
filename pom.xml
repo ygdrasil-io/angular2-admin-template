@@ -60,21 +60,38 @@
                 <version>1.4.0</version>
                 <executions>
                     <execution>
+                        <id>npm</id>
+                        <phase>validate</phase>
                         <goals>
                             <goal>exec</goal>
                         </goals>
-                    </execution>
-                </executions>
                 <configuration>
+                    <executable>npm</executable>
+                    <!-- optional -->
+                    <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
+                    <arguments>
+                        <argument>install</argument>
+
+                    </arguments>
+                </configuration>
+                    </execution>
+
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    <configuration>
                     <executable>tsc</executable>
                     <!-- optional -->
-                    <workingDirectory>${basedir}/src/main/ts</workingDirectory>
+                    <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
                     <!--<arguments>
-                        <argument>-X</argument>
-                        <argument>myproject:dist</argument>
+                        <argument>-w</argument>
 
-                    </arguments>-->
-                </configuration>
+                            </arguments>-->
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
