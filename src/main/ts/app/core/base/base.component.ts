@@ -22,32 +22,32 @@ import {ControlController} from '../index'
 import {ContentHeaderController} from '../content/content.header.controller'
 
 @RouteConfig([
-    {
-        path: '/dashboard',
-        as: 'Dashboard',
-        component: Dashboard,
-        useAsDefault: true
-    },
-    {
-        path: '/dashboard2',
-        as: 'DashboardV2',
-        component: Inbox
-    },
-    {
-        path: '/inbox',
-        as: 'Inbox',
-        component: Inbox
-    }
+{
+path: '/dashboard',
+as: 'Dashboard',
+component: Dashboard,
+useAsDefault: true
+},
+{
+path: '/dashboard2',
+as: 'DashboardV2',
+component: Inbox
+},
+{
+path: '/inbox',
+as: 'Inbox',
+component: Inbox
+}
 ])
 
 @Component({
-    directives: [Menu, Footer, Header, Control, ContentHeaderComponent, ROUTER_DIRECTIVES, NgClass, RemoveHost],
-    selector: 'core-app',
-    templateUrl: 'app/core/base/base.html',
-    providers: [ContentHeaderController, ControlController]
+directives: [Menu, Footer, Header, Control, ContentHeaderComponent, ROUTER_DIRECTIVES, NgClass, RemoveHost],
+selector: 'core-app',
+templateUrl: 'v/core/base/base.html',
+providers: [ContentHeaderController, ControlController]
 })
 
 export class AppComponent {
-    skin = Skin.Green
+skin = Skin.Green
 
 }
