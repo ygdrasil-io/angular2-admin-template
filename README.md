@@ -1,0 +1,36 @@
+Introduction
+============
+
+This project is highly experimental for now. I intend to bring spring boot and Angular 2 together on a single maven project.
+
+**TODO**
+
+Technologies
+------------
+
+- Maven
+- Spring boot
+- Java
+- Angular 2 (beta 17)
+- TypeScript
+
+Installation
+------------
+
+**Download**
+- Clone to your machine
+```
+git clone https://github.com/chaosnya/angular2-admin-template.git
+```
+
+**Install NPM**
+
+**Download**
+- Run
+```
+mvn spring-boot:run
+```
+
+Admin LTE
+-------------
+visit ([github page](https://github.com/almasaeed2010/AdminLTE)) for more informations about the template.
