@@ -43,7 +43,7 @@ export class SubMenu extends MenuItem {
 @Component({
     directives: [ROUTER_DIRECTIVES],
     selector: 'core-menu',
-    templateUrl: 'app/core/menu/menu.html'
+    templateUrl: 'views/core/menu/menu.html'
 })
 
 export class Menu {

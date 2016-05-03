@@ -3,7 +3,7 @@ import {ControlController} from '../control/control.controller'
 
 @Component({
     selector: 'core-header',
-    templateUrl: 'app/core/header/header.html'
+    templateUrl: 'views/core/header/header.html'
 })
 
 export class Header {

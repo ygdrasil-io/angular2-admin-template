@@ -5,7 +5,7 @@ import {ControlController} from './control.controller'
 
 @Component({
     selector: 'core-control',
-    templateUrl: 'app/core/control/control.html',
+    templateUrl: 'views/core/control/control.html',
     directives: [NgClass]
 })
 

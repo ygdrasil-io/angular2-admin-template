@@ -12,6 +12,7 @@ import {Footer} from '../footer/footer.component'
 import {Header} from '../header/header.component'
 import {Control} from '../control/control.component'
 import {ContentHeaderComponent} from '../content/content.header.component'
+import {LoginComponent} from '../login/login.component'
 
 /* views */
 import {Dashboard} from '../../components/dashboard/dashboard.component'
@@ -23,31 +24,40 @@ import {ContentHeaderController} from '../content/content.header.controller'
 
 @RouteConfig([
 {
-path: '/dashboard',
-as: 'Dashboard',
-component: Dashboard,
-useAsDefault: true
+    path: 'dashboard',
+    as: 'Dashboard',
+    component: Dashboard,
+    useAsDefault: true
 },
 {
-path: '/dashboard2',
-as: 'DashboardV2',
-component: Inbox
+    path: '/dashboard2',
+    as: 'DashboardV2',
+    component: Inbox
 },
 {
-path: '/inbox',
-as: 'Inbox',
-component: Inbox
+    path: '/inbox',
+    as: 'Inbox',
+    component: Inbox
 }
 ])
 
 @Component({
-directives: [Menu, Footer, Header, Control, ContentHeaderComponent, ROUTER_DIRECTIVES, NgClass, RemoveHost],
-selector: 'core-app',
-templateUrl: 'v/core/base/base.html',
-providers: [ContentHeaderController, ControlController]
+    directives: [Menu, Footer, Header, Control, ContentHeaderComponent, ROUTER_DIRECTIVES, NgClass, RemoveHost, LoginComponent],
+    selector: 'body',
+    templateUrl: 'views/core/base/base.html',
+    providers: [ContentHeaderController, ControlController],
+    host:     {
+        '[class.login-page]':'authenticated == false',
+        '[class.hold-transition]':'authenticated',
+        '[class.sidebar-mini]':'authenticated'
+    }
 })
 
 export class AppComponent {
-skin = Skin.Green
+    skin = Skin.Green
+    authenticated = false
 
+    logged(authenticated: boolean) {
+        this.authenticated = authenticated
+    }
 }

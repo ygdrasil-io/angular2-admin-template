@@ -8,7 +8,7 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "outDir": "../../../target/generated-resources"
+    "outDir": "../../../target/generated-resources/static/js"
   },
   "exclude": [
     "node_modules",

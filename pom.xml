@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>adminlte</name>
-    <description>Demo project for Spring Boot</description>
+    <description></description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -39,6 +39,55 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+
+        <!-- Webjars -->
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.11.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>angular2</artifactId>
+            <version>2.0.0-beta.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>jquery-ui</artifactId>
+            <version>1.11.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>admin-lte</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>es6-shim</artifactId>
+            <version>0.35.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>reflect-metadata</artifactId>
+            <version>0.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>rxjs</artifactId>
+            <version>5.0.0-beta.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>systemjs</artifactId>
+            <version>0.19.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars.npm</groupId>
+            <artifactId>zone.js</artifactId>
+            <version>0.6.12</version>
+        </dependency>
+        <!-- Webjar end -->
     </dependencies>
 
     <build>
@@ -57,7 +106,6 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
                 <executions>
                     <execution>
                         <id>npm</id>
@@ -65,15 +113,14 @@
                         <goals>
                             <goal>exec</goal>
                         </goals>
-                <configuration>
-                    <executable>npm</executable>
-                    <!-- optional -->
-                    <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
-                    <arguments>
-                        <argument>install</argument>
+                        <configuration>
+                            <executable>npm</executable>
+                            <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
+                            <arguments>
+                                <argument>install</argument>
 
-                    </arguments>
-                </configuration>
+                            </arguments>
+                        </configuration>
                     </execution>
 
                     <execution>
@@ -81,14 +128,10 @@
                         <goals>
                             <goal>exec</goal>
                         </goals>
-                    <configuration>
-                    <executable>tsc</executable>
-                    <!-- optional -->
-                    <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
-                    <!--<arguments>
-                        <argument>-w</argument>
+                        <configuration>
+                            <executable>tsc</executable>
+                            <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
 
-                            </arguments>-->
                         </configuration>
                     </execution>
                 </executions>
@@ -98,95 +141,57 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <!-- Serves *only* to filter the wro.xml so it can get an absolute
-                        path for the project -->
-                        <id>copy-resources</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>copy-resources</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${basedir}/target/wro</outputDirectory>
-                            <resources>
-                                <resource>
-                                    <directory>src/main/wro</directory>
-                                    <filtering>true</filtering>
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>ro.isdc.wro4j</groupId>
-                <artifactId>wro4j-maven-plugin</artifactId>
-                <version>${wro4j.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-resources</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <wroManagerFactory>ro.isdc.wro.maven.plugin.manager.factory.ConfigurableWroManagerFactory</wroManagerFactory>
-                    <cssDestinationFolder>${project.build.directory}/generated-resources/static/css</cssDestinationFolder>
-                    <jsDestinationFolder>${project.build.directory}/generated-resources/static/js</jsDestinationFolder>
-                    <wroFile>${project.build.directory}/wro/wro.xml</wroFile>
-                    <extraConfigFile>${basedir}/src/main/wro/wro.properties</extraConfigFile>
-                    <contextFolder>${basedir}/src/main/wro</contextFolder>
-                </configuration>
-                <dependencies>
 
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>angular2</artifactId>
-                        <version>2.0.0-beta.17</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.bower</groupId>
-                        <artifactId>jquery-ui</artifactId>
-                        <version>1.11.4</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>admin-lte</artifactId>
-                        <version>2.3.3</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>es6-shim</artifactId>
-                        <version>0.35.0</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>reflect-metadata</artifactId>
-                        <version>0.1.2</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>rxjs</artifactId>
-                        <version>5.0.0-beta.6</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>systemjs</artifactId>
-                        <version>0.19.26</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.webjars.npm</groupId>
-                        <artifactId>zone.js</artifactId>
-                        <version>0.6.12</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
         </plugins>
     </build>
 
 
+    <profiles>
+        <profile>
+            <id>typescript</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                                <configuration>
+                                    <executable>tsc</executable>
+                                    <workingDirectory>${basedir}/src/main/ts/</workingDirectory>
+                                    <arguments>
+                                        <argument>-w</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.zeroturnaround</groupId>
+                        <artifactId>jrebel-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>generate-rebel-xml</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>generate</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

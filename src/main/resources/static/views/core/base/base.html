@@ -1,4 +1,5 @@
-<div class="wrapper" [ngClass]="skin">
+
+<div class="wrapper" [ngClass]="skin" *ngIf="authenticated">
     <core-header [remove-host]></core-header>
 
     <!-- Left side column. contains the logo and sidebar -->
@@ -21,4 +22,13 @@
     <core-control [remove-host]></core-control>
     <!-- /.content-wrapper -->
     <core-footer [remove-host]></core-footer>
+</div>
+
+
+
+<div [ngClass]="skin" *ngIf="authenticated == false" class="login-page" >
+    <core-login [remove-host]
+        (onLogged)="logged($event)">
+
+    </core-login>
 </div>

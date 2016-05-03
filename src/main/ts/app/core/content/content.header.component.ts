@@ -3,7 +3,7 @@ import {ContentHeaderData, ContentHeaderController} from './content.header.contr
 
 @Component({
     selector: 'core-content-header',
-    templateUrl: 'app/core/content/content.header.html'
+    templateUrl: 'views/core/content/content.header.html'
 })
 
 export class ContentHeaderComponent {

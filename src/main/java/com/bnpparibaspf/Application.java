@@ -1,5 +1,6 @@
 package com.bnpparibaspf;
 
+import com.bnpparibaspf.security.CustomBasicAuthenticationEntryPoint;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Collections;
@@ -25,6 +26,7 @@ import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,11 +45,16 @@ public class Application {
     @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
     protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+        @Autowired
+        private CustomBasicAuthenticationEntryPoint entrypoint;
+
         @Override
         protected void configure(HttpSecurity http) throws Exception {
-            http.httpBasic().and().logout().and().authorizeRequests()
-                    .antMatchers("/index.html", "/home.html", "/login.html", "/").permitAll().anyRequest()
-                    .authenticated().and().csrf()
+            http.httpBasic().authenticationEntryPoint(entrypoint)
+                    .and().authorizeRequests()
+                    .antMatchers("/api/**").hasRole("ADMIN")
+                    .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
+                    .and().csrf()
                     .csrfTokenRepository(csrfTokenRepository()).and()
                     .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
         }
@@ -95,7 +102,7 @@ public class Application {
 
     }
 
-    @RequestMapping("/user")
+    @RequestMapping("/api/v1/user")
     public Principal user(Principal user) {
         return user;
     }
