@@ -24,13 +24,19 @@ git clone https://github.com/chaosnya/angular2-admin-template.git
 ```
 
 **Install NPM**
+Visit [Install page](https://docs.npmjs.com/getting-started/installing-node).
 
-**Download**
-- Run
+**Install Typescript compiler**
+```
+npm install -g typescript
+```
+
+**Run**
+- Run spring boot from maven plugin
 ```
 mvn spring-boot:run
 ```
 
 Admin LTE
 -------------
-visit ([github page](https://github.com/almasaeed2010/AdminLTE)) for more informations about the template.
+Visit [github page](https://github.com/almasaeed2010/AdminLTE) for more informations about the template.
