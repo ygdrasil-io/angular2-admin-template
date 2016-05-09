@@ -1,6 +1,6 @@
-package com.bnpparibaspf;
+package xyz.yggdrazil;
 
-import com.bnpparibaspf.security.CustomBasicAuthenticationEntryPoint;
+import xyz.yggdrazil.security.CustomBasicAuthenticationEntryPoint;
 import java.io.IOException;
 import java.security.Principal;
 import java.util.Collections;

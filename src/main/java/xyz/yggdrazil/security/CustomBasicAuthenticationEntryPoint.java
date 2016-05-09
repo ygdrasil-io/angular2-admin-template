@@ -1,4 +1,4 @@
-package com.bnpparibaspf.security;
+package xyz.yggdrazil.security;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
