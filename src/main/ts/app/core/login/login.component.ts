@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Output} from 'angular2/core'
-import {NgModel} from 'angular2/common'
-import {Http, HTTP_PROVIDERS, Headers} from 'angular2/http';
+import {Component, EventEmitter, Output} from '@angular/core'
+import {NgModel} from '@angular/common'
+import {Http, HTTP_PROVIDERS, Headers} from '@angular/http'
 
 @Component({
     selector: 'core-login',

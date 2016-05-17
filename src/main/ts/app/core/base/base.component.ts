@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core'
-import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {NgClass} from 'angular2/common'
+import {Component} from '@angular/core'
+import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated'
+import {NgClass} from '@angular/common'
 
 /* helpers */
 import {Skin} from '../enum'

@@ -1,5 +1,5 @@
 
-import { Directive, ElementRef } from 'angular2/core';
+import { Directive, ElementRef } from '@angular/core';
 
 //remove the host of avatar to be rendered as svg
 @Directive({

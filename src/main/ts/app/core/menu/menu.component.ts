@@ -1,5 +1,5 @@
-import {Component, NgZone} from 'angular2/core'
-import {ROUTER_DIRECTIVES, Router} from 'angular2/router'
+import {Component, NgZone} from '@angular/core'
+import {ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated'
 import {RemoveHost} from '../helper/remove.host'
 import {Utils} from '../helper/utils'
 import {Picto, BackgroundColor} from '../enum'

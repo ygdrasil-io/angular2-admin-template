@@ -1,4 +1,4 @@
-import{Component, Input}from 'angular2/core'
+import{Component, Input}from '@angular/core'
 import{ControlController}from '../control/control.controller'
 import {RemoveHost} from '../helper/remove.host'
 
