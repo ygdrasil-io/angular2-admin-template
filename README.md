@@ -11,7 +11,7 @@ Technologies
 - Maven
 - Spring boot
 - Java
-- Angular 2 (beta 17)
+- Angular 2 (RC 1)
 - TypeScript
 
 Installation
