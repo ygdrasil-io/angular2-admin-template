@@ -18,6 +18,10 @@ import {LoginComponent} from '../login/login.component'
 import {Dashboard} from '../../components/dashboard/dashboard.component'
 import {Inbox} from '../../components/views/inbox'
 
+/** tables **/
+import {DataTablesComponent} from '../../components/table/data.tables.component'
+import {SimpleTablesComponent} from '../../components/table/simple.tables.component'
+
 /* controllers */
 import {ControlController} from '../index'
 import {ContentHeaderController} from '../content/content.header.controller'
@@ -38,7 +42,17 @@ import {ContentHeaderController} from '../content/content.header.controller'
     path: '/inbox',
     as: 'Inbox',
     component: Inbox
-}
+},
+ {
+     path: '/data-tables',
+     as: 'DataTables',
+     component: DataTablesComponent
+ },
+  {
+      path: '/simple-tables',
+      as: 'SimpleTables',
+      component: SimpleTablesComponent
+  }
 ])
 
 @Component({

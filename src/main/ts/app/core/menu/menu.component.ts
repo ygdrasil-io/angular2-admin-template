@@ -71,6 +71,24 @@ export class Menu {
             label: "24",
             labelBackground: BackgroundColor.Fuchsia
         }, ["Inbox"]),
+
+        //Tables
+
+        new SubMenu({
+            title: 'Tables',
+            icon: Picto.Table
+        }, [
+            new MenuItem({
+                title: 'Simple tables',
+                icon: Picto.CircleO,
+                path: 'simple-tables'
+            }, ["SimpleTables"]),
+            new MenuItem({
+                title: 'Data tables',
+                path: 'data-tables',
+                icon: Picto.CircleO
+            }, ["DataTables"])
+        ])
     ];
 
 

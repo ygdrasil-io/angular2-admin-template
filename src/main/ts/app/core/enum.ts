@@ -32,7 +32,9 @@ export enum Picto {
 
   Laptop = <any>'fa-laptop',
 
-  Dashboard = <any>'fa-dashboard'
+  Dashboard = <any>'fa-dashboard',
+
+  Table = <any>'fa-table'
 }
 
 export enum BackgroundColor {
