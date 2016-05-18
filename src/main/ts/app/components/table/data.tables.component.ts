@@ -1,4 +1,4 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
 import {ContentHeaderController} from '../../core/index'
 
 @Component({
@@ -6,7 +6,7 @@ import {ContentHeaderController} from '../../core/index'
     templateUrl: 'views/table/data.tables.html',
 })
 
-export class DataTablesComponent {
+export class DataTablesComponent implements OnInit{
 
     constructor(private contentHeaderController: ContentHeaderController) {
         contentHeaderController.changeHeader({
@@ -15,4 +15,17 @@ export class DataTablesComponent {
         })
     }
 
+
+    ngOnInit() {
+
+        $("#example1").dataTable()
+        $('#example2').dataTable({
+              paging: true,
+              lengthChange: false,
+              searching: false,
+              ordering: true,
+              info: true,
+              autoWidth: false
+            })
+    }
 }

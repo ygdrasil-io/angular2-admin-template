@@ -120,72 +120,16 @@ declare namespace DataTables
 		page?: string;
 	}
 
-	export interface Options
-	{
-		aaData?: any[];
-		aaSorting?: any[];
-		aaSortingFixed?: any[];
-		ajax?: any;
-		aLengthMenu?: any[];
-		aoColumns?: ColumnOptions[];
-		aoColumnDefs?: ColumnDef[];
-		aoSearchCols?: any[];
-		asStripClasses?: string[];
-		bAutoWidth?: boolean;
-		bDeferRender?: boolean;
-		bDestroy?: boolean;
-		bFilter?: boolean;
-		bInfo?: boolean;
-		bJQueryUI?: boolean;
-		bLengthChange?: boolean;
-		bPaginate?: boolean;
-		bProcessing?: boolean;
-		bRetrieve?: boolean;
-		bScrollAutoCss?: boolean;
-		bScrollCollapse?: boolean;
-		bScrollInfinite?: boolean;
-		bServerSide?: boolean;
-		bSort?: boolean;
-		bSortCellsTop?: boolean;
-		bSortClasses?: boolean;
-		bStateSave?: boolean;
-		fnCookieCallback?: CookieCallback;
-		fnCreatedRow?: RowCreatedCallback;
-		fnDrawCallback?: DrawCallback;
-		fnFooterCallback?: FooterCallback;
-		fnFormatNumber?: FormatNumber;
-		fnHeaderCallback?: HeaderCallback;
-		fnInfoCallback?: InfoCallback;
-		fnInitComplete?: InitComplete;
-		fnPreDrawCallback?: PreDrawCallback;
-		fnRowCallback?: RowCallback;
-
-		fnStateLoadCallback?: StateLoadCallback;
-		fnStateLoadParams?: StateLoadParams;
-		fnStateLoaded?: StateLoaded;
-		fnStateSaveCallback?: StateSaveCallback;
-		fnStateSaveParams?: StateSaveParams;
-		iCookieDuration?: number;
-		iDeferLoading?: any;
-		iDisplayLength?: number;
-		iDisplayStart?: number;
-		iScrollLoadGap?: number;
-		iTabIndex?: number;
-		oLanguage?: LanguageOptions;
-		oSearch?: any;
-		sAjaxDataProp?: string;
-		sAjaxSource?: string;
-		sCookiePrefix?: string;
-		sDom?: string;
-		sPaginationType?: string;
-		sScrollX?: string;
-		sScrollXInner?: string;
-		sScrollY?: string;
-		sServerMethod? : string;
+	export interface Options {
+		paging?: boolean
+         lengthChange?: boolean
+         searching?: boolean
+         ordering?: boolean
+         info?: boolean
+         autoWidth?: boolean
 	}
 
-	export interface LanguageOptions
-	{
+	export interface LanguageOptions {
 		oAria? : AriaOptions;
 		oPaginate? : PaginateOptions;
 		sEmptyTable?: string;
