@@ -1,17 +1,5 @@
 package xyz.yggdrazil;
 
-import xyz.yggdrazil.security.CustomBasicAuthenticationEntryPoint;
-import java.io.IOException;
-import java.security.Principal;
-import java.util.Collections;
-import java.util.Map;
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,16 +10,12 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.authentication.configurers.provisioning.InMemoryUserDetailsManagerConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.web.csrf.CsrfFilter;
-import org.springframework.security.web.csrf.CsrfToken;
-import org.springframework.security.web.csrf.CsrfTokenRepository;
-import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.util.WebUtils;
+import xyz.yggdrazil.security.CustomBasicAuthenticationEntryPoint;
+
+import java.security.Principal;
 
 @SpringBootApplication
 @RestController
@@ -39,6 +23,11 @@ public class Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @RequestMapping("/api/v1/user")
+    public Principal user(Principal user) {
+        return user;
     }
 
     @Configuration
@@ -54,38 +43,7 @@ public class Application {
                     .and().authorizeRequests()
                     .antMatchers("/api/**").hasRole("ADMIN")
                     .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/")
-                    .and().csrf()
-                    .csrfTokenRepository(csrfTokenRepository()).and()
-                    .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
-        }
-
-        private Filter csrfHeaderFilter() {
-            return new OncePerRequestFilter() {
-                @Override
-                protected void doFilterInternal(HttpServletRequest request,
-                        HttpServletResponse response, FilterChain filterChain)
-                        throws ServletException, IOException {
-                    CsrfToken csrf = (CsrfToken) request.getAttribute(CsrfToken.class
-                            .getName());
-                    if (csrf != null) {
-                        Cookie cookie = WebUtils.getCookie(request, "XSRF-TOKEN");
-                        String token = csrf.getToken();
-                        if (cookie == null || token != null
-                                && !token.equals(cookie.getValue())) {
-                            cookie = new Cookie("XSRF-TOKEN", token);
-                            cookie.setPath("/");
-                            response.addCookie(cookie);
-                        }
-                    }
-                    filterChain.doFilter(request, response);
-                }
-            };
-        }
-
-        private CsrfTokenRepository csrfTokenRepository() {
-            HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
-            repository.setHeaderName("X-XSRF-TOKEN");
-            return repository;
+                    .and().csrf().disable();
         }
 
         @Autowired
@@ -100,16 +58,5 @@ public class Application {
 
         }
 
-    }
-
-    @RequestMapping("/api/v1/user")
-    public Principal user(Principal user) {
-        return user;
-    }
-
-    @RequestMapping("/token")
-    @ResponseBody
-    public Map<String, String> token(HttpSession session) {
-        return Collections.singletonMap("token", session.getId());
     }
 }

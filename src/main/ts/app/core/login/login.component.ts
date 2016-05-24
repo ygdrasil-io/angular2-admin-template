@@ -14,6 +14,7 @@ export class LoginComponent {
     error = false
 
     constructor(private http: Http) {
+
         var headers = new Headers()
         headers.append("X-Requested-With", "XMLHttpRequest")
 
@@ -35,8 +36,7 @@ export class LoginComponent {
         login() {
             var headers = new Headers()
             headers.append("X-Requested-With", "XMLHttpRequest")
-            headers.append("Authorization",
-            "Basic " + btoa(this.username + ":" + this.password))
+            headers.append("Authorization", "Basic " + btoa(this.username + ":" + this.password))
 
 
             this.http.get('api/v1/user', {

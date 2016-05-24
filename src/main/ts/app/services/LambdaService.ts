@@ -16,8 +16,13 @@ export class LambdaService {
 
     constructor (private http: Http) {}
 
+    private helloUrl = '/api/v1/test'
     private dataUrl = 'http://jsonplaceholder.typicode.com/posts/1'
     private xmlDataUrl = 'https://supportforums.cisco.com/sites/default/files/legacy/9/0/8/66809-Text_example.xml'
+
+    getHello(): Observable<Response> {
+            return this.http.get(this.helloUrl)
+        }
 
     /*getData (): Observable<LambdaData> {
         return this.http.get(this.dataUrl)

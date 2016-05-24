@@ -74,4 +74,5 @@ export class AppComponent {
     logged(authenticated: boolean) {
         this.authenticated = authenticated
     }
+
 }
