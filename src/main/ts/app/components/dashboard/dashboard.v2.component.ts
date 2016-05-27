@@ -8,12 +8,12 @@ import {ContentHeaderController} from '../../core/index'
     `
 })
 
-export class DashboardComponent {
+export class DashboardV2Component {
 
     constructor(private contentHeaderController: ContentHeaderController) {
         contentHeaderController.changeHeader({
             title: "Dashboard",
-            subTitle: "v1"
+            subTitle: "v2"
         })
     }
 

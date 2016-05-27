@@ -15,8 +15,9 @@ import {ContentHeaderComponent} from '../content/content.header.component'
 import {LoginComponent} from '../login/login.component'
 
 /* views */
-import {Dashboard} from '../../components/dashboard/dashboard.component'
-import {Inbox} from '../../components/views/inbox'
+import {DashboardComponent} from '../../components/dashboard/dashboard.component'
+import {DashboardV2Component} from '../../components/dashboard/dashboard.v2.component'
+import {CalendarComponent} from '../../components/calendar/calendar.component'
 
 /** tables **/
 import {DataTablesComponent} from '../../components/table/data.tables.component'
@@ -30,18 +31,13 @@ import {ContentHeaderController} from '../content/content.header.controller'
 {
     path: 'dashboard',
     as: 'Dashboard',
-    component: Dashboard,
+    component: DashboardComponent,
     useAsDefault: true
 },
 {
     path: '/dashboard2',
     as: 'DashboardV2',
-    component: Inbox
-},
-{
-    path: '/inbox',
-    as: 'Inbox',
-    component: Inbox
+    component: DashboardV2Component
 },
  {
      path: '/data-tables',
@@ -52,7 +48,12 @@ import {ContentHeaderController} from '../content/content.header.controller'
       path: '/simple-tables',
       as: 'SimpleTables',
       component: SimpleTablesComponent
-  }
+  },
+    {
+        path: '/calendar',
+        as: 'Calendar',
+        component: CalendarComponent
+    }
 ])
 
 @Component({

@@ -64,13 +64,13 @@ export class Menu {
                 icon: Picto.CircleO
             }, ["DashboardV2"])
         ]),
-        new MenuItem({
+        /*new MenuItem({
             title: 'Messages',
             path: 'inbox',
             icon: Picto.File,
             label: "24",
             labelBackground: BackgroundColor.Fuchsia
-        }, ["Inbox"]),
+        }, ["Inbox"]),*/
 
         //Tables
 
@@ -88,7 +88,18 @@ export class Menu {
                 path: 'data-tables',
                 icon: Picto.CircleO
             }, ["DataTables"])
-        ])
+        ]),
+
+        //Calendar
+
+        new MenuItem({
+            title: 'Calendar',
+            path: 'calendar',
+            icon: Picto.Calendar,
+            label: "3",
+            labelBackground: BackgroundColor.Red
+        }, ["Calendar"])
+
     ];
 
 

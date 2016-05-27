@@ -2,18 +2,17 @@ import {Component} from '@angular/core'
 import {ContentHeaderController} from '../../core/index'
 
 @Component({
-  selector: 'inbox',
-  template: `
-      inbox
-    `
+    selector: 'calendar',
+    templateUrl: 'views/calendar/calendar.html',
 })
 
-export class Inbox {
+export class CalendarComponent {
 
     constructor(private contentHeaderController: ContentHeaderController) {
         contentHeaderController.changeHeader({
-            title: "Inbox",
-            subTitle: "messages"
+            title: "Calendar",
+            subTitle: "Control panel"
         })
     }
+
 }

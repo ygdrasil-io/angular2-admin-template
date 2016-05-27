@@ -34,7 +34,9 @@ export enum Picto {
 
   Dashboard = <any>'fa-dashboard',
 
-  Table = <any>'fa-table'
+  Table = <any>'fa-table',
+
+  Calendar = <any>'fa-calendar'
 }
 
 export enum BackgroundColor {
