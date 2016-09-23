@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.webjars.npm:rxjs:5.0.0-beta.12">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/npm/rxjs/5.0.0-beta.12/rxjs-5.0.0-beta.12.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/npm/rxjs/5.0.0-beta.12/rxjs-5.0.0-beta.12-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/webjars/npm/rxjs/5.0.0-beta.12/rxjs-5.0.0-beta.12-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

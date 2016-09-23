@@ -1,8 +1,7 @@
-import {Component, NgZone} from '@angular/core'
-import {ROUTER_DIRECTIVES, Router} from '@angular/router-deprecated'
-import {RemoveHost} from '../helper/remove.host'
-import {Utils} from '../helper/utils'
-import {Picto, BackgroundColor} from '../enum'
+import {Component, NgZone} from "@angular/core";
+import {Utils} from "../helper/utils";
+import {Picto, BackgroundColor} from "../enum";
+import {Router, NavigationStart} from "@angular/router";
 
 export class MenuItem {
     title: string = ""
@@ -11,8 +10,8 @@ export class MenuItem {
     href = []
     label = ""
     /**
-    * must be a valid path define on routing to expect item to be switch as active
-    */
+     * must be a valid path define on routing to expect item to be switch as active
+     */
     path = ""
     labelBackground = BackgroundColor.None
 
@@ -41,7 +40,6 @@ export class SubMenu extends MenuItem {
 }
 
 @Component({
-    directives: [ROUTER_DIRECTIVES],
     selector: 'core-menu',
     templateUrl: 'views/core/menu/menu.html'
 })
@@ -65,12 +63,12 @@ export class Menu {
             }, ["DashboardV2"])
         ]),
         /*new MenuItem({
-            title: 'Messages',
-            path: 'inbox',
-            icon: Picto.File,
-            label: "24",
-            labelBackground: BackgroundColor.Fuchsia
-        }, ["Inbox"]),*/
+         title: 'Messages',
+         path: 'inbox',
+         icon: Picto.File,
+         label: "24",
+         labelBackground: BackgroundColor.Fuchsia
+         }, ["Inbox"]),*/
 
         //Tables
 
@@ -103,29 +101,34 @@ export class Menu {
     ];
 
 
-    constructor(private router: Router, zone:NgZone) {
-        router.subscribe(path => {
-            zone.run(() => {
-                for(var item of this.items) {
-                    if (item.path == path) {
-                        item.active = true
-                    } else {
-                        item.active = false
-                    }
+    constructor(private router: Router, zone: NgZone) {
+        router.events
+            .subscribe(event => {
+                    if (event instanceof NavigationStart) {
+                        zone.run(() => {
+                            for (var item of this.items) {
+                                if (item.path == event.url) {
+                                    item.active = true
+                                } else {
+                                    item.active = false
+                                }
 
-                    if (item instanceof SubMenu) {
-                        let subMenu = <SubMenu>item
-                        for(var item of subMenu.items) {
-                            if (item.path == path) {
-                                item.active = true
-                                subMenu.active = true
-                            } else {
-                                item.active = false
+                                if (item instanceof SubMenu) {
+                                    let subMenu = <SubMenu>item
+                                    for (var item of subMenu.items) {
+                                        if (item.path == event.url) {
+                                            item.active = true
+                                            subMenu.active = true
+                                        } else {
+                                            item.active = false
+                                        }
+                                    }
+                                }
                             }
-                        }
+                        })
                     }
                 }
-            })
-        })
+            )
     }
+
 }

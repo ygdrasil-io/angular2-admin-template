@@ -1,54 +1,38 @@
 System.config({
-    defaultJSExtensions: true,
-    map: {
-        'rxjs': 'webjars/rxjs/5.0.0-beta.6',
-        '@angular': '@angular',
+    paths: {
+        // paths serve as alias
+        'rxjs': 'webjars/rxjs/5.0.0-beta.12',
         'app': 'js'
     },
+    // map tells the System loader where to look for things
+    map: {
+        // our app is within the app folder
+        app: 'app',
+        // angular bundles
+        '@angular/core': '@angular/core/bundles/core.umd.js',
+        '@angular/common': '@angular/common/bundles/common.umd.js',
+        '@angular/compiler': '@angular/compiler/bundles/compiler.umd.js',
+        '@angular/platform-browser': '@angular/platform-browser/bundles/platform-browser.umd.js',
+        '@angular/platform-browser-dynamic': '@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+        '@angular/http': '@angular/http/bundles/http.umd.js',
+        '@angular/router': '@angular/router/bundles/router.umd.js',
+        '@angular/forms': '@angular/forms/bundles/forms.umd.js',
+        // other libraries
+        'rxjs': 'webjars/rxjs/5.0.0-beta.12',
+        'angular2-in-memory-web-api': 'angular2-in-memory-web-api',
+    },
+    // packages tells the System loader how to load when no filename and/or no extension
     packages: {
-        'app': {
-            main: 'main.js',
+        app: {
+            main: './main.js',
             defaultExtension: 'js'
         },
-        '@angular/core': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/http': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/compiler': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/router-deprecated': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-
-        '@angular/upgrade': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-
-        '@angular/common': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        '@angular/platform-browser-dynamic': {
-            main: 'index.js',
-            defaultExtension: 'js'
-        },
-        'rxjs': {
+        rxjs: {
             defaultExtension: 'js'
         }
     }
-})
+});
 
-
-System.import('app').then(null, console.error.bind(console));
+System.import('app').catch(function (err) {
+    console.error(err);
+});

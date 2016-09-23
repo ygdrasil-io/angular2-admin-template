@@ -1,12 +1,10 @@
-import {Component, Input} from '@angular/core'
-import {NgClass} from '@angular/common'
-import {Subscription} from 'rxjs/Subscription'
-import {ControlController} from './control.controller'
+import {Component} from "@angular/core";
+import {Subscription} from "rxjs/Subscription";
+import {ControlController} from "./control.controller";
 
 @Component({
     selector: 'core-control',
-    templateUrl: 'views/core/control/control.html',
-    directives: [NgClass]
+    templateUrl: 'views/core/control/control.html'
 })
 
 export class Control {
