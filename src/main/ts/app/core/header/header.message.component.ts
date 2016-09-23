@@ -1,7 +1,4 @@
-import{Component, Input}from '@angular/core'
-import{ControlController}from '../control/control.controller'
-import{HeaderMessageItem}from './header.item'
-//export * from './header.item'
+import{Component}from '@angular/core'
 
 @Component({
     selector: 'core-header-message',

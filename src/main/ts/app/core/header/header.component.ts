@@ -10,7 +10,7 @@ import {ControlController} from "../control/control.controller";
     templateUrl: 'views/core/header/header.html'
 })
 
-export class Header {
+export class HeaderComponent {
 
     showControlSideBarButton = true
 
